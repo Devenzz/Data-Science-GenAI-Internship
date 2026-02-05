@@ -1,4 +1,4 @@
-# Internship-Task
+# Data-Science-GenAl-Internship 
 
 # 🚀 Data Science with GenAI Internship – Innomatics Research Labs
 
