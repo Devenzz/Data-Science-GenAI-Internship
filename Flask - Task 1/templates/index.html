@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppercase Converter</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141E30, #243B55);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.12);
+            padding: 30px;
+            width: 400px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        h1 {
+            color: #00e6e6;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #00e6e6;
+            color: black;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00cccc;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ffeb3b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>🔠 Uppercase Converter</h1>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Enter your text" required>
+            <br>
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if output %}
+        <div class="output">
+            Output: {{ output }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
