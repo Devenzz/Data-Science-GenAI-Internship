@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL History</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg,#667eea,#764ba2);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family:"Segoe UI", sans-serif;
+        }
+
+        .card-box{
+            width:100%;
+            max-width:800px;
+            background:white;
+            padding:35px;
+            border-radius:18px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        h3{
+            text-align:center;
+            margin-bottom:25px;
+            font-weight:600;
+        }
+
+        table{
+            margin-top:15px;
+        }
+
+        th{
+            background:#667eea;
+            color:white;
+        }
+
+        td a{
+            text-decoration:none;
+            color:#667eea;
+            font-weight:500;
+        }
+
+        td a:hover{
+            text-decoration:underline;
+        }
+
+        .back-btn{
+            margin-top:20px;
+            display:block;
+            width:150px;
+            background:#667eea;
+            color:white;
+            border:none;
+        }
+
+        .back-btn:hover{
+            background:#5a6fdc;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card-box">
+
+    <h3>📜 URL History</h3>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Original URL</th>
+                <th>Short URL</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for url in urls %}
+            <tr>
+                <td>{{ url.original_url }}</td>
+                <td>
+                    <a href="/{{ url.short_code }}" target="_blank">
+                        {{ request.host_url }}{{ url.short_code }}
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a href="/" class="btn back-btn">⬅ Back Home</a>
+    </div>
+
+</div>
+
+</body>
+</html>
