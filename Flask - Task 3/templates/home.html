@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Taking App</title>
+
+    <style>
+        body{
+            margin:0;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#e0e5ec;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .container{
+            width:420px;
+            background:#e0e5ec;
+            padding:35px;
+            border-radius:20px;
+            box-shadow: 
+                8px 8px 15px #a3b1c6,
+               -8px -8px 15px #ffffff;
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#e0e5ec;
+            box-shadow: 
+                inset 4px 4px 8px #a3b1c6,
+                inset -4px -4px 8px #ffffff;
+            font-size:15px;
+            outline:none;
+        }
+
+        button{
+            margin-top:15px;
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#6c63ff;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#554ee0;
+            transform:scale(1.03);
+        }
+
+        h3{
+            margin-top:30px;
+            color:#444;
+        }
+
+        ul{
+            padding-left:20px;
+        }
+
+        li{
+            background:#f5f7ff;
+            padding:10px;
+            border-radius:8px;
+            margin-bottom:8px;
+            list-style-type:square;
+        }
+
+        li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px;
+}
+
+li span{
+    flex:1;
+}
+
+a{
+    text-decoration:none;
+    color:red;
+    font-size:18px;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>📝 Note Taking Application</h2>
+
+    <form method="POST">
+        <input type="text" name="note" placeholder="Enter a note" required>
+        <button type="submit">Add Note</button>
+    </form>
+
+    {% if notes %}
+        <h3>All Notes</h3>
+        <ul>
+{% for note in notes %}
+    <li>
+        <span>{{ note }}</span>
+        <a href="{{ url_for('delete', index=loop.index0) }}">❌</a>
+    </li>
+{% endfor %}
+</ul>
+
+</ul>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
