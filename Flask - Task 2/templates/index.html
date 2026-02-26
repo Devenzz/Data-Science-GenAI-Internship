@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🔍 Regex Tester</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="page">
+    <div class="card">
+        <h1>🔍 Regex Tester</h1>
+        <p class="subtitle">Enter the user Input</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>Regular Expression</label>
+                <input type="text" name="regex" value="{{ regex }}" placeholder="e.g. \bword\b" required>
+            </div>
+
+            <div class="form-group">
+                <label>Test String</label>
+                <textarea name="text" rows="7" placeholder="Enter your text here..." required>{{ text }}</textarea>
+            </div>
+
+            <button type="submit">Test Regex</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if highlighted_text %}
+            <div class="output-box">
+                <h3>🔦 Highlighted Output</h3>
+                <div class="output-text">{{ highlighted_text | safe }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
